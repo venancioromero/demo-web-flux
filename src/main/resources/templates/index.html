@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{vendors/jquery/3.4.0/jquery-3.4.0.min.js}"></script>
+    <link rel="stylesheet" th:href="@{vendors/bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css}"/>
+    <script th:src="@{vendors/bootstrap/bootstrap-4.3.1-dist/js/bootstrap.js}"></script>
+    <title>Bakery</title>
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>Bakery</h1>
+    <div>
+        <h3>Orders</h3>
+        <table class="col-12">
+            <tbody>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th style="text-align: center;">Precio</th>
+                </tr>
+            <th:block th:each="order : ${orders}">
+                <tr>
+                    <td><img width="100px" height="auto" th:src="${order.image_url}"></td>
+                    <td th:text="${order.name}"></td>
+                    <td style="text-align: center;" th:text="${order.price}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
